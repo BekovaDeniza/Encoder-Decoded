@@ -17,39 +17,24 @@ void    caesarMut(char* str, int n) {
     }
 }
 
-char*   caesarImmut(const char* str, int n) {
+char*   caesarImmut(const char* str, const int n) {
     char* res = malloc((strlen(str) + 1) * sizeof(char));
+	strcpy(res, str);
+    caesarMut(res, n);
 
-    for (int i = 0; i < strlen(str); ++i) {
-        if (str[i] >= 'a' && str[i] <= 'z') {
-            if (*str + n < 'z') {
-                res[i] = str[i] + n;
-            }
-            else if (*str + n > 'z') {
-                res[i] = 'a' + (*str + n) % ('z' - 'a' + 1);;
-            }
-            else if (*str + n < 'a') {
-                res[i] = 'z' - ('a' % (*str + n)) + 1;
-            }
-        }
-        else {
-		    res[i] = str[i];
-	        }
-	}
-	return res;
-}
-
-char*   xorImmut(const char* str, char* key) {
-	char* res = malloc((strlen(str) + 1) * sizeof(char)) ;
-	
-	for (int i = 0; i <= strlen(str); ++i) {
-		res[i] = str[i] ^ key[i % strlen(key)];
-	}
-	return res;
+    return res;
 }
 
 void	xorMut(char* str, char* key) {
 	for (int i = 0; i < strlen(str); ++i) {
 		str[i] = str[i] ^ key[i % strlen(key)];
     }
+}
+
+char*   xorImmut(const char* str, const char* key) {
+    char* res = malloc((strlen(str) + 1) * sizeof(char)) ;
+    strcpy(res, str);
+    xorMut(res, key);
+
+    return res;
 }

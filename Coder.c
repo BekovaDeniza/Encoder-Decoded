@@ -30,8 +30,10 @@ char*   caesarImmut(const char* str, const int n) {
 }
 
 void	xorMut(char* str, char* key) {
+    int len = strlen(key);
+
     for (int i = 0; str[i] != '\0'; ++i) {
-        str[i] = str[i] ^ key[i % strlen(key)];
+        str[i] = str[i] ^ key[i % len];
     }
 }
 

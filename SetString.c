@@ -36,25 +36,30 @@ char*   toLowerImmut(const char* str) {
     return res;
 }
 
-void    trimMut(char str[]) {
+char*   trimMut(char* str) {
+    size_t size = strlen(str);
+    char* end;
     int begin = 0;
-    int end = strlen(str) - 1;
-    
+
+    if(!size) {
+        return str;
+    }
+
+    end = str + size - 1;
     while(str[begin] == ' ') {
         ++begin;
     }
 
-    while(str[end] == ' ') {
+    while(end >= str && *end == ' ') {
         --end;
     }
+    *(end + 1) = '\0';
 
-    int len = end - begin + 1;
-
-    for (int i = 0; i <= len; ++i) {
+    for (int i = 0; str[i] != '\0'; ++i) {
         str[i] = str[i + begin];
     }
 
-    str[len] = '\0';
+    return str;
 }
 
 char*   trimImmut(const char* str) {

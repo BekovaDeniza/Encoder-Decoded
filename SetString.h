@@ -18,7 +18,7 @@ void toLowerMut(char* str);
 char* trimImmut(const char* str);
 
 //Удаление пробелов с конца и начала строки(muttable)
-void trimMut(char str[]);
+char* trimMut(char str[]);
 
 //Удаление пробелов из строки(muttable)
 void squeezeMut(char str[]);

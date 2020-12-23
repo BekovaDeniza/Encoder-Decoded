@@ -103,9 +103,8 @@ void    filterMut(char str[]) {
             str[j] = str[i];
             ++j;
         }
-   }
-
-   str[j] = '\0';
+    }
+    str[j] = '\0';
 }
 
 char*   filterImmut(const char* str) {
@@ -131,7 +130,6 @@ int     isLetter(char* str) {
         }
         ++str;
     }
-
     return let;
 }
 
@@ -150,6 +148,5 @@ int     isNumber(char* str) {
         }
             ++str;
     }
-
     return num;
 }
